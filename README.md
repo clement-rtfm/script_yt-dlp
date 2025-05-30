@@ -24,25 +24,25 @@ sudo chmod a+rx /usr/local/bin/yt-dlp
 
 
 
-🛠 Installation du script
+## 🛠 Installation du script
 Clone ce dépôt ou télécharge le fichier : git clone https://github.com/ton-utilisateur/yt-audio-downloader.git
 cd yt-audio-downloader
 
 Rends le script exécutable : chmod +x yt-audio.sh
 
-🎬 Utilisation
+## 🎬 Utilisation
 Lance simplement le script depuis ton terminal : ./yt-audio.sh
 
 Tu verras : Colle l'URL YouTube (vidéo ou playlist) :
 
 Colle ton lien YouTube et laisse faire la magie.
 
-📁 Emplacement des fichiers
+## 📁 Emplacement des fichiers
 Les MP3 seront enregistrés dans :
 ~/Musique/YT-Audio/Nom_de_la_Playlist/nom_de_la_video.mp3
 
-⚠️ En cas de problème
+## ⚠️ En cas de problème
 Si tu obtiens des erreurs pendant le téléchargement, consulte le fichier : ~/Musique/YT-Audio/errors.log
 
-📜 Licence
+## 📜 Licence
 Ce script est distribué sous la licence MIT. Utilisation à but personnel uniquement, conformément aux conditions d’utilisation de YouTube.
