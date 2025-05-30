@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# Vérifier que yt-dlp est installé
+if ! command -v yt-dlp &> /dev/null; then
+    echo "❌ yt-dlp n'est pas installé. Installe-le d'abord avec :"
+    echo "sudo curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp"
+    echo "sudo chmod a+rx /usr/local/bin/yt-dlp"
+    exit 1
+fi
+
+# Demander l'URL YouTube
+read -p "Colle l'URL YouTube (vidéo ou playlist) : " url
+
+# Dossier de base de sortie
+base_output_dir="$HOME/Musique/YT-Audio"
+
+# Créer le dossier principal
+mkdir -p "$base_output_dir"
+
+# Lancer le téléchargement
+yt-dlp -x --audio-format mp3 --embed-thumbnail --add-metadata \
+  -o "$base_output_dir/%(playlist_title,playlist_id)s/%(title)s.%(ext)s" \
+  "$url" 2>>"$base_output_dir/errors.log"
+
+# Vérifier le succès
+if [ $? -eq 0 ]; then
+    echo "✅ Téléchargement terminé avec succès."
+else
+    echo "⚠️ Une ou plusieurs erreurs sont survenues. Consulte : $base_output_dir/errors.log"
+fi
